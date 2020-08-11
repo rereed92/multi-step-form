@@ -19,6 +19,7 @@ const config: webpack.Configuration = {
       theme: path.resolve(__dirname, './src/assets/theme/'),
       utilities: path.resolve(__dirname, './src/utilities/'),
       routes: path.resolve(__dirname, './src/routes'),
+      store: path.resolve(__dirname, './src/store'),
     },
   },
 

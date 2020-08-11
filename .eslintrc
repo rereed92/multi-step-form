@@ -45,7 +45,10 @@
       {
         "caseSensitive": false
       }
-    ]
+    ],
+    "import/no-cycle": [2, {
+      "maxDepth": 1
+    }]
   },
   "globals": {
     "window": true,

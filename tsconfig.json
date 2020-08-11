@@ -19,6 +19,7 @@
       "theme/*": ["assets/theme/*"],
       "utilities/*": ["utilities/*"],
       "routes/*": ["routes/*"],
+      "store/*": ["store/*"],
     }
   },
 }
