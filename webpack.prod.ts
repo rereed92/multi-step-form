@@ -18,9 +18,12 @@ const config: webpack.Configuration = {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
+      containers: path.resolve(__dirname, './src/containers/'),
+      pages: path.resolve(__dirname, './src/pages/'),
       components: path.resolve(__dirname, './src/components/'),
       theme: path.resolve(__dirname, './src/assets/theme/'),
       utilities: path.resolve(__dirname, './src/utilities/'),
+      routes: path.resolve(__dirname, './src/routes'),
     },
   },
 

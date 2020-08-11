@@ -12,6 +12,9 @@
     "test:coverage": "jest"
   },
   "dependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
+    "history": "^4.10.0",
     "jss": "^10.3.0",
     "jss-plugin-camel-case": "^10.3.0",
     "jss-plugin-extend": "^10.3.0",
@@ -19,7 +22,8 @@
     "jss-plugin-vendor-prefixer": "^10.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-jss": "^10.3.0"
+    "react-jss": "^10.3.0",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
@@ -28,22 +32,23 @@
     "@babel/preset-typescript": "^7.10.4",
     "@types/enzyme": "^3.10.5",
     "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/history": "^4.7.6",
     "@types/html-webpack-plugin": "^3.2.3",
     "@types/jest": "^26.0.8",
     "@types/react": "^16.9.44",
     "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.5",
     "@types/webpack": "^4.41.21",
     "@typescript-eslint/eslint-plugin": "^3.8.0",
     "@typescript-eslint/parser": "^3.8.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-jest": "^26.2.2",
     "concurrently": "^5.2.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "7.2.0",
     "eslint-config-airbnb": "18.2.0",
     "eslint-config-airbnb-typescript": "^9.0.0",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-typescript": "^2.2.0",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-jest": "^23.20.0",
     "eslint-plugin-jsx-a11y": "^6.3.0",
@@ -88,9 +93,12 @@
       "node_modules"
     ],
     "moduleNameMapper": {
+      "^containers/(.*)": "<rootDir>/src/containers/$1",
+      "^pages/(.*)": "<rootDir>/src/pages/$1",
       "^components/(.*)": "<rootDir>/src/components/$1",
       "^theme/(.*)": "<rootDir>/src/assets/theme/$1",
-      "^utilities/(.*)": "<rootDir>/src/utilities/$1"
+      "^utilities/(.*)": "<rootDir>/src/utilities/$1",
+      "^routes/(.*)": "<rootDir>/src/routes/$1"
     },
     "testMatch": [
       "**/?(*.)+(test).ts?(x)"
