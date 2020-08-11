@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist/",
+		"noImplicitAny": true,
+		"target": "es5",
+		"lib": ["es5", "es6", "dom"],
+		"jsx": "react",
+    "allowJs": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "esModuleInterop": true,
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["components/*"],
+      "theme/*": ["assets/theme/*"],
+      "utilities/*": ["utilities/*"],
+    }
+  },
+}

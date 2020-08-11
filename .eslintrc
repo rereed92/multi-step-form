@@ -1,0 +1,47 @@
+{
+  "extends": [
+    "airbnb-typescript",
+    "airbnb",
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint"
+  ],
+  "plugins": [
+    "prettier",
+    "jsx-a11y",
+    "react",
+    "import",
+    "@typescript-eslint",
+    "react-hooks",
+    "promise",
+    "jest"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {},
+  "globals": {
+    "window": true,
+    "localStorage": true
+  },
+  "env": {
+    "jest": true,
+    "browser": true,
+    "es6": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".json"]
+      }
+    },
+    "react": {
+      "version": "detect"
+    }
+  }
+}
