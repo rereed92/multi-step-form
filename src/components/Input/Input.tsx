@@ -6,6 +6,7 @@ interface IInput {
   placeholder?: string;
   value: string;
   onChange: (value: string) => void;
+  onBlur?: () => void;
 }
 
 const Input = ({
@@ -14,9 +15,11 @@ const Input = ({
   placeholder = '',
   value,
   onChange,
+  onBlur = () => {},
 }: IInput) => {
   return (
     <label>
+      {label}
       <input
         type={type}
         placeholder={placeholder}
@@ -24,8 +27,8 @@ const Input = ({
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           onChange(e.target.value)
         }
+        onBlur={onBlur}
       />
-      {label}
     </label>
   );
 };
