@@ -46,15 +46,13 @@
         "caseSensitive": false
       }
     ],
-    "import/no-cycle": [2, {
-      "maxDepth": 1
-    }],
+    "import/no-cycle": 0,
     "jsx-a11y/label-has-associated-control": [2, {
       "components": ["Input"],
       "required": {
         "some": ["nesting", "id"]
       },
-      "allowChildren": true,
+      "allowChildren": true
     }],
     "react/require-default-props": 0
   },
