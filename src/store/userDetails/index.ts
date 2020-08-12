@@ -3,7 +3,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppThunk } from 'store/types';
 import initialState from './state';
-import { IUserDetailsState, IInputPayload } from './types';
+import { IUserDetailsState, IInputPayload, ICheckboxPayload } from './types';
 
 const userDetailsSlice = createSlice({
   name: 'userDetailsSlice',
@@ -36,6 +36,20 @@ const userDetailsSlice = createSlice({
     ) {
       state.password = input;
     },
+
+    setProductUpdates(
+      state: IUserDetailsState,
+      { payload: { checked } }: PayloadAction<ICheckboxPayload>
+    ) {
+      state.productUpdates = checked;
+    },
+
+    setOtherProductUpdates(
+      state: IUserDetailsState,
+      { payload: { checked } }: PayloadAction<ICheckboxPayload>
+    ) {
+      state.otherProductUpdates = checked;
+    },
   },
 });
 
@@ -44,6 +58,8 @@ export const {
   setRole,
   setEmail,
   setPassword,
+  setProductUpdates,
+  setOtherProductUpdates,
 } = userDetailsSlice.actions;
 
 export default userDetailsSlice;

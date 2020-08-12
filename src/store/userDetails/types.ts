@@ -10,3 +10,7 @@ export interface IUserDetailsState {
 export interface IInputPayload {
   input: string;
 }
+
+export interface ICheckboxPayload {
+  checked: boolean;
+}
