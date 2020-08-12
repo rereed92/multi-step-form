@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React from 'react';
-import { MultiStep } from 'containers';
-import { IMultiStep } from 'containers/MultiStep/types';
+import { MultiStep } from 'components';
+import { IMultiStep } from 'components/MultiStep/types';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'store';
 import { submitData } from 'store/userDetails';
