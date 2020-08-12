@@ -5,25 +5,21 @@ interface IUserForm {
   name: {
     value: string;
     onChange: (value: string) => void;
-    onBlur?: any;
     errorMessage?: string;
   };
   role: {
     value: string;
     onChange: (value: string) => void;
-    onBlur?: any;
     errorMessage?: string;
   };
   email: {
     value: string;
     onChange: (value: string) => void;
-    onBlur?: any;
     errorMessage?: string;
   };
   password: {
     value: string;
     onChange: (value: string) => void;
-    onBlur?: any;
     errorMessage?: string;
   };
 }
@@ -36,7 +32,6 @@ const UserForm = ({ name, role, email, password }: IUserForm) => {
         label="name"
         value={name.value}
         onChange={(value: string) => name.onChange(value)}
-        onBlur={name.onBlur}
       />
       {name.errorMessage && <p>{name.errorMessage}</p>}
 
@@ -44,7 +39,6 @@ const UserForm = ({ name, role, email, password }: IUserForm) => {
         label="role"
         value={role.value}
         onChange={(value: string) => role.onChange(value)}
-        onBlur={role.onBlur}
       />
       {role.errorMessage && <p>{role.errorMessage}</p>}
 
@@ -53,7 +47,6 @@ const UserForm = ({ name, role, email, password }: IUserForm) => {
         type="email"
         value={email.value}
         onChange={(value: string) => email.onChange(value)}
-        onBlur={email.onBlur}
       />
       {email.errorMessage && <p>{email.errorMessage}</p>}
 
@@ -62,7 +55,6 @@ const UserForm = ({ name, role, email, password }: IUserForm) => {
         type="password"
         value={password.value}
         onChange={(value: string) => password.onChange(value)}
-        onBlur={password.onBlur}
       />
       {password.errorMessage && <p>{password.errorMessage}</p>}
     </fieldset>

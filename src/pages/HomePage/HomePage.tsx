@@ -25,12 +25,12 @@ const HomePage = () => {
 
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [userErrorMessages, setUserErrorMessages] = useState({
-    name: '',
-    email: '',
-    password: '',
+    name: undefined,
+    email: undefined,
+    password: undefined,
   });
 
-  const validation = {
+  const userValidation = {
     name: [
       {
         rule: required,
@@ -62,12 +62,13 @@ const HomePage = () => {
   const userProps = {
     name: {
       value: values.name,
-      onChange: (value: string) => dispatch(setName({ input: value })),
-      onBlur: () =>
+      onChange: (value: string) => {
+        dispatch(setName({ input: value }));
         setUserErrorMessages({
           ...userErrorMessages,
-          name: findError(validation.name, values.name),
-        }),
+          name: findError(userValidation.name, value),
+        });
+      },
       errorMessage: userErrorMessages.name,
     },
     role: {
@@ -76,28 +77,41 @@ const HomePage = () => {
     },
     email: {
       value: values.email,
-      onChange: (value: string) => dispatch(setEmail({ input: value })),
-      onBlur: () =>
+      onChange: (value: string) => {
+        dispatch(setEmail({ input: value }));
         setUserErrorMessages({
           ...userErrorMessages,
-          email: findError(validation.email, values.email),
-        }),
+          email: findError(userValidation.email, value),
+        });
+      },
       errorMessage: userErrorMessages.email,
     },
     password: {
       value: values.password,
-      onChange: (value: string) => dispatch(setPassword({ input: value })),
-      onBlur: () =>
+      onChange: (value: string) => {
+        dispatch(setPassword({ input: value }));
         setUserErrorMessages({
           ...userErrorMessages,
-          password: findError(validation.password, values.password),
-        }),
+          password: findError(userValidation.password, value),
+        });
+      },
       errorMessage: userErrorMessages.password,
     },
   };
 
   const formSteps: IMultiStep = {
-    steps: [<UserForm {...userProps} />, <PrivacyForm />],
+    steps: [
+      {
+        component: <UserForm {...userProps} />,
+        isStepValid: Object.values(userErrorMessages).every(
+          (field: string) => field === ''
+        ),
+      },
+      {
+        component: <PrivacyForm />,
+        isStepValid: true,
+      },
+    ],
   };
 
   return (

@@ -1,5 +1,8 @@
 import { ReactElement } from 'react';
 
 export interface IMultiStep {
-  steps: ReactElement[];
+  steps: {
+    component: ReactElement;
+    isStepValid: boolean;
+  }[];
 }

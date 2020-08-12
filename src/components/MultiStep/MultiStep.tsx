@@ -12,12 +12,15 @@ const MultiStep = ({ formSteps, onSubmit }: IMultiStepProps) => {
 
   return (
     <form onSubmit={onSubmit}>
-      {steps[step]}
+      {steps[step].component}
       {step === steps.length - 1 ? (
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={!steps[step].isStepValid}>
+          Submit
+        </button>
       ) : (
         <button
           type="button"
+          disabled={!steps[step].isStepValid}
           onClick={(e: MouseEvent<HTMLButtonElement>) => {
             e.preventDefault();
             setStep(step + 1);
