@@ -11,6 +11,7 @@ const PrivacyForm = () => {
   );
   return (
     <fieldset>
+      <legend>Privacy</legend>
       <Checkbox
         label="product updates"
         value={productUpdates}

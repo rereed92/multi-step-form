@@ -11,6 +11,7 @@ const UserForm = () => {
   );
   return (
     <fieldset>
+      <legend>User</legend>
       <Input
         label="name"
         value={name}
