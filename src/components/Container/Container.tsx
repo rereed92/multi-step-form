@@ -2,11 +2,11 @@ import React, { ReactElement } from 'react';
 import { useTheme } from 'react-jss';
 import useStyles from './Container.styles';
 
-interface IContainer {
+interface IContainerProps {
   children: ReactElement;
 }
 
-const Container = ({ children }: IContainer) => {
+const Container = ({ children }: IContainerProps) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 

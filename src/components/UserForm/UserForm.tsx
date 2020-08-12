@@ -1,62 +1,52 @@
 import React from 'react';
 import { Input } from 'components';
 
-interface IUserForm {
-  name: {
-    value: string;
-    onChange: (value: string) => void;
-    errorMessage?: string;
-  };
-  role: {
-    value: string;
-    onChange: (value: string) => void;
-    errorMessage?: string;
-  };
-  email: {
-    value: string;
-    onChange: (value: string) => void;
-    errorMessage?: string;
-  };
-  password: {
-    value: string;
-    onChange: (value: string) => void;
-    errorMessage?: string;
-  };
+interface IUserInputOptions {
+  value: string;
+  onChange: (value: string) => void;
+  errorMessage?: string;
 }
 
-const UserForm = ({ name, role, email, password }: IUserForm) => {
+interface IUserFormProps {
+  name: IUserInputOptions;
+  role: IUserInputOptions;
+  email: IUserInputOptions;
+  password: IUserInputOptions;
+}
+
+const UserForm = ({ name, role, email, password }: IUserFormProps) => {
   return (
     <fieldset>
       <legend>User</legend>
       <Input
         label="name"
         value={name.value}
-        onChange={(value: string) => name.onChange(value)}
+        onChange={name.onChange}
+        errorMessage={name.errorMessage}
       />
-      {name.errorMessage && <p>{name.errorMessage}</p>}
 
       <Input
         label="role"
         value={role.value}
-        onChange={(value: string) => role.onChange(value)}
+        onChange={role.onChange}
+        errorMessage={role.errorMessage}
       />
-      {role.errorMessage && <p>{role.errorMessage}</p>}
 
       <Input
         label="email"
         type="email"
         value={email.value}
-        onChange={(value: string) => email.onChange(value)}
+        onChange={email.onChange}
+        errorMessage={email.errorMessage}
       />
-      {email.errorMessage && <p>{email.errorMessage}</p>}
 
       <Input
         label="password"
         type="password"
         value={password.value}
-        onChange={(value: string) => password.onChange(value)}
+        onChange={password.onChange}
+        errorMessage={password.errorMessage}
       />
-      {password.errorMessage && <p>{password.errorMessage}</p>}
     </fieldset>
   );
 };

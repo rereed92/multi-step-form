@@ -1,12 +1,13 @@
 import React, { ChangeEvent } from 'react';
 
-interface IInput {
+interface IInputProps {
   label: string;
   type?: 'text' | 'password' | 'email' | 'number';
   placeholder?: string;
   value: string;
   onChange: (value: string) => void;
   onBlur?: () => void;
+  errorMessage?: string;
 }
 
 const Input = ({
@@ -16,20 +17,24 @@ const Input = ({
   value,
   onChange,
   onBlur = () => {},
-}: IInput) => {
+  errorMessage = '',
+}: IInputProps) => {
   return (
-    <label>
-      {label}
-      <input
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={(e: ChangeEvent<HTMLInputElement>) =>
-          onChange(e.target.value)
-        }
-        onBlur={onBlur}
-      />
-    </label>
+    <div>
+      <label>
+        {label}
+        <input
+          type={type}
+          placeholder={placeholder}
+          value={value}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            onChange(e.target.value)
+          }
+          onBlur={onBlur}
+        />
+      </label>
+      {errorMessage && <p>{errorMessage}</p>}
+    </div>
   );
 };
 

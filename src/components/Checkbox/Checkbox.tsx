@@ -1,12 +1,12 @@
 import React, { ChangeEvent } from 'react';
 
-interface ICheckbox {
+interface ICheckboxProps {
   label: string;
   value: boolean;
   onChange: (value: boolean) => void;
 }
 
-const Checkbox = ({ label, value, onChange }: ICheckbox) => {
+const Checkbox = ({ label, value, onChange }: ICheckboxProps) => {
   return (
     <label>
       <input

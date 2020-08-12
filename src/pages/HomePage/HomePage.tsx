@@ -1,5 +1,10 @@
 /* eslint-disable no-console */
-import React, { useState, SyntheticEvent } from 'react';
+import React, {
+  useState,
+  SyntheticEvent,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 import {
   MultiStep,
   UserForm,
@@ -12,89 +17,90 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'store';
 import {
   submitData,
-  setName,
   setRole,
   setEmail,
   setPassword,
+  setName,
 } from 'store/userDetails';
-import { required, email, password, findError } from 'utilities/validations';
+import { findError, IValidation } from 'utilities/validations';
+import { UserDetailsValidation } from 'validations/userDetails';
+import { ActionCreatorWithOptionalPayload } from '@reduxjs/toolkit';
+import { IInputPayload } from 'store/userDetails/types';
+
+interface IUserErrorMessages {
+  name: string | undefined;
+  email: string | undefined;
+  password: string | undefined;
+}
+
+export const onInputChange = (
+  dispatch: Dispatch<any>,
+  dispatchSetFunction: ActionCreatorWithOptionalPayload<IInputPayload, string>,
+  setUserErrorMessages?: Dispatch<SetStateAction<IUserErrorMessages>>,
+  userErrorMessages?: IUserErrorMessages,
+  field?: 'name' | 'email' | 'password',
+  validations?: IValidation[]
+) => (value: string) => {
+  dispatch(dispatchSetFunction({ input: value }));
+  if (setUserErrorMessages)
+    setUserErrorMessages({
+      ...userErrorMessages,
+      [field]: findError(validations, value),
+    });
+};
 
 const HomePage = () => {
   const values = useSelector((state: RootState) => state.userDetails);
   const dispatch = useDispatch();
 
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const [userErrorMessages, setUserErrorMessages] = useState({
+  const [userErrorMessages, setUserErrorMessages] = useState<
+    IUserErrorMessages
+  >({
     name: undefined,
     email: undefined,
     password: undefined,
   });
 
-  const userValidation = {
-    name: [
-      {
-        rule: required,
-        message: 'Name is a required field',
-      },
-    ],
-    email: [
-      {
-        rule: required,
-        message: 'Email is a required field',
-      },
-      {
-        rule: email,
-        message: 'Email needs to be a valid email',
-      },
-    ],
-    password: [
-      {
-        rule: required,
-        message: 'Password is a required field',
-      },
-      {
-        rule: password,
-        message: 'Password needs to match the criteria',
-      },
-    ],
-  };
-
   const userProps = {
     name: {
       value: values.name,
-      onChange: (value: string) => {
-        dispatch(setName({ input: value }));
-        setUserErrorMessages({
-          ...userErrorMessages,
-          name: findError(userValidation.name, value),
-        });
-      },
+      onChange: onInputChange(
+        dispatch,
+        setName,
+        setUserErrorMessages,
+        userErrorMessages,
+        'name',
+        UserDetailsValidation.name
+      ),
       errorMessage: userErrorMessages.name,
     },
     role: {
       value: values.role,
-      onChange: (value: string) => dispatch(setRole({ input: value })),
+      onChange: onInputChange(dispatch, setRole),
     },
     email: {
       value: values.email,
-      onChange: (value: string) => {
-        dispatch(setEmail({ input: value }));
-        setUserErrorMessages({
-          ...userErrorMessages,
-          email: findError(userValidation.email, value),
-        });
-      },
+      onChange: onInputChange(
+        dispatch,
+        setEmail,
+        setUserErrorMessages,
+        userErrorMessages,
+        'email',
+        UserDetailsValidation.email
+      ),
       errorMessage: userErrorMessages.email,
     },
     password: {
       value: values.password,
-      onChange: (value: string) => {
-        dispatch(setPassword({ input: value }));
-        setUserErrorMessages({
-          ...userErrorMessages,
-          password: findError(userValidation.password, value),
-        });
-      },
+      onChange: onInputChange(
+        dispatch,
+        setPassword,
+        setUserErrorMessages,
+        userErrorMessages,
+        'password',
+        UserDetailsValidation.password
+      ),
       errorMessage: userErrorMessages.password,
     },
   };

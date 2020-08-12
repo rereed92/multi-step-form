@@ -4,8 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "concurrently \"tsc -w\" \"webpack-dev-server --open --hot --config webpack.dev.ts\"",
-    "build": "webpack --mode production --config webpack.prod.ts",
+    "start": "concurrently \"tsc -w\" \"webpack-dev-server --open --hot --config webpack.config.ts\"",
     "lint": "eslint '*/**/*.{ts,tsx}' --fix",
     "tsc": "tsc",
     "test": "jest",
@@ -111,7 +110,8 @@
       "^theme/(.*)": "<rootDir>/src/assets/theme/$1",
       "^utilities/(.*)": "<rootDir>/src/utilities/$1",
       "^routes/(.*)": "<rootDir>/src/routes/$1",
-      "^store/(.*)": "<rootDir>/src/store/$1"
+      "^store/(.*)": "<rootDir>/src/store/$1",
+      "^validations/(.*)": "<rootDir>/src/validations/$1"
     },
     "testMatch": [
       "**/?(*.)+(test).ts?(x)"
