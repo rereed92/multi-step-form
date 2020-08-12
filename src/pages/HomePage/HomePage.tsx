@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import React from 'react';
-import { MultiStep } from 'components';
+import { MultiStep, UserForm } from 'components';
 import { IMultiStep } from 'components/MultiStep/types';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'store';
@@ -11,7 +11,7 @@ const HomePage = () => {
   const dispatch = useDispatch();
 
   const formSteps: IMultiStep = {
-    components: [<div>1</div>, <div>2</div>, <div>3</div>],
+    components: [<UserForm />, <div>2</div>, <div>3</div>],
   };
 
   return (

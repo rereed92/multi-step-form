@@ -15,10 +15,36 @@ const userDetailsSlice = createSlice({
     ) {
       state.name = input;
     },
+
+    setRole(
+      state: IUserDetailsState,
+      { payload: { input } }: PayloadAction<IInputPayload>
+    ) {
+      state.role = input;
+    },
+
+    setEmail(
+      state: IUserDetailsState,
+      { payload: { input } }: PayloadAction<IInputPayload>
+    ) {
+      state.email = input;
+    },
+
+    setPassword(
+      state: IUserDetailsState,
+      { payload: { input } }: PayloadAction<IInputPayload>
+    ) {
+      state.password = input;
+    },
   },
 });
 
-export const { setName } = userDetailsSlice.actions;
+export const {
+  setName,
+  setRole,
+  setEmail,
+  setPassword,
+} = userDetailsSlice.actions;
 
 export default userDetailsSlice;
 
