@@ -44,6 +44,10 @@ const primary: ITheme = {
     small: 14,
     error: 12,
   },
+  spacing: {
+    container: 1140,
+    padding: 20,
+  },
 };
 
 export default primary;

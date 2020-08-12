@@ -46,4 +46,8 @@ export interface ITheme {
     small: number;
     error: number;
   };
+  spacing: {
+    container: number;
+    padding: number;
+  };
 }

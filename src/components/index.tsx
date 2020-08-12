@@ -6,3 +6,4 @@ export { default as Checkbox } from './Checkbox/Checkbox';
 export { default as UserForm } from './UserForm/UserForm';
 export { default as PrivacyForm } from './PrivacyForm/PrivacyForm';
 export { default as Confirmation } from './Confirmation/Confirmation';
+export { default as Container } from './Container/Container';
