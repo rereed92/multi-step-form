@@ -5,3 +5,4 @@ export { default as Input } from './Input/Input';
 export { default as Checkbox } from './Checkbox/Checkbox';
 export { default as UserForm } from './UserForm/UserForm';
 export { default as PrivacyForm } from './PrivacyForm/PrivacyForm';
+export { default as Confirmation } from './Confirmation/Confirmation';

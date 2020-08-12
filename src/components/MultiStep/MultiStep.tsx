@@ -1,23 +1,24 @@
-import React, { useState, SyntheticEvent } from 'react';
+import React, { useState, FormEvent, MouseEvent } from 'react';
 import { IMultiStep } from './types';
 
 export interface IMultiStepProps {
-  steps: IMultiStep;
-  onSubmit: () => void;
+  formSteps: IMultiStep;
+  onSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }
 
-const MultiStep = ({ steps, onSubmit }: IMultiStepProps) => {
+const MultiStep = ({ formSteps, onSubmit }: IMultiStepProps) => {
+  const { steps } = formSteps;
   const [step, setStep] = useState<number>(0);
 
   return (
     <form onSubmit={onSubmit}>
-      {steps.components[step]}
-      {step === steps.components.length - 1 ? (
+      {steps[step]}
+      {step === steps.length - 1 ? (
         <button type="submit">Submit</button>
       ) : (
         <button
           type="button"
-          onClick={(e: SyntheticEvent) => {
+          onClick={(e: MouseEvent<HTMLButtonElement>) => {
             e.preventDefault();
             setStep(step + 1);
           }}

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import React from 'react';
-import { MultiStep, UserForm, PrivacyForm } from 'components';
+import React, { useState, SyntheticEvent } from 'react';
+import { MultiStep, UserForm, PrivacyForm, Confirmation } from 'components';
 import { IMultiStep } from 'components/MultiStep/types';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'store';
@@ -10,17 +10,27 @@ const HomePage = () => {
   const values = useSelector((state: RootState) => state.userDetails);
   const dispatch = useDispatch();
 
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
   const formSteps: IMultiStep = {
-    components: [<UserForm />, <PrivacyForm />, <div>3</div>],
+    steps: [<UserForm />, <PrivacyForm />],
   };
 
   return (
     <>
       <h1>Heading</h1>
-      <MultiStep
-        steps={formSteps}
-        onSubmit={() => dispatch(submitData(values))}
-      />
+      {!showConfirmation ? (
+        <MultiStep
+          formSteps={formSteps}
+          onSubmit={(e: SyntheticEvent) => {
+            e.preventDefault();
+            setShowConfirmation(true);
+            dispatch(submitData(values));
+          }}
+        />
+      ) : (
+        <Confirmation />
+      )}
     </>
   );
 };
