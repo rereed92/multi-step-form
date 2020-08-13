@@ -50,4 +50,8 @@ export interface ITheme {
     container: number;
     padding: number;
   };
+  breakpoints: {
+    md: number;
+    lg: number;
+  };
 }

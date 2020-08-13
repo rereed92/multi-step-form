@@ -2,14 +2,17 @@ import React, { ReactElement } from 'react';
 import { useTheme } from 'react-jss';
 import useStyles from './Column.styles';
 
-interface IColumnProps {
+type ColumnWidth = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export interface IColumnProps {
   children: ReactElement | ReactElement[];
-  width: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  xs: ColumnWidth;
+  md?: ColumnWidth;
+  lg?: ColumnWidth;
 }
 
-const Column = ({ children, width }: IColumnProps) => {
+const Column = ({ children, xs, md, lg }: IColumnProps) => {
   const theme = useTheme();
-  const classes = useStyles({ ...{ width }, theme });
+  const classes = useStyles({ ...{ xs, md, lg }, theme });
 
   return <div className={classes.column}>{children}</div>;
 };

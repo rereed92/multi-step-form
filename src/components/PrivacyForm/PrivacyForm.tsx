@@ -13,7 +13,7 @@ const PrivacyForm = () => {
     <fieldset>
       <legend>Privacy</legend>
       <Row>
-        <Column width={12}>
+        <Column xs={12}>
           <Checkbox
             label="product updates"
             value={productUpdates}
@@ -22,7 +22,7 @@ const PrivacyForm = () => {
             }
           />
         </Column>
-        <Column width={12}>
+        <Column xs={12}>
           <Checkbox
             label="other product updates"
             value={otherProductUpdates}

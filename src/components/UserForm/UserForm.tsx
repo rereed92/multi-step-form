@@ -19,7 +19,7 @@ const UserForm = ({ name, role, email, password }: IUserFormProps) => {
     <fieldset>
       <legend>User</legend>
       <Row>
-        <Column width={6}>
+        <Column xs={12} md={6}>
           <Input
             label="name"
             value={name.value}
@@ -28,7 +28,7 @@ const UserForm = ({ name, role, email, password }: IUserFormProps) => {
           />
         </Column>
 
-        <Column width={6}>
+        <Column xs={12} md={6}>
           <Input
             label="role"
             value={role.value}
@@ -38,7 +38,7 @@ const UserForm = ({ name, role, email, password }: IUserFormProps) => {
         </Column>
       </Row>
       <Row>
-        <Column width={6}>
+        <Column xs={12} md={6}>
           <Input
             label="email"
             type="email"
@@ -48,7 +48,7 @@ const UserForm = ({ name, role, email, password }: IUserFormProps) => {
           />
         </Column>
 
-        <Column width={6}>
+        <Column xs={12} md={6}>
           <Input
             label="password"
             type="password"

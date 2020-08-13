@@ -48,6 +48,10 @@ const primary: ITheme = {
     container: 1140,
     padding: 20,
   },
+  breakpoints: {
+    md: 768,
+    lg: 992,
+  },
 };
 
 export default primary;
