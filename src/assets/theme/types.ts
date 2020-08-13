@@ -4,35 +4,13 @@
  */
 export interface ITheme {
   colors: {
-    primaryColor1: {
-      primary1: string;
-      primary2: string;
-      light: string;
-      dark1: string;
-      dark2: string;
-    };
-    primaryColor2: {
-      primary1: string;
-      primary2: string;
-      light: string;
-      dark1: string;
-      dark2: string;
-    };
-    transparent: string;
+    primary: string;
+    primaryDark: string;
+    secondary: string;
+    secondaryDark: string;
     default: string;
     defaultLight: string;
     light1: string;
-    light2: string;
-    light3: string;
-    light4: string;
-    light5: string;
-    light6: string;
-    light7: string;
-  };
-  fonts: {
-    regular: string;
-    bold: string;
-    semiBold: string;
   };
   fontSizes: {
     H1: number;
@@ -44,11 +22,16 @@ export interface ITheme {
     subTitle: number;
     body: number;
     small: number;
-    error: number;
   };
   spacing: {
     container: number;
     padding: number;
+    margin: {
+      xs: number;
+      small: number;
+      medium: number;
+      large: number;
+    };
   };
   breakpoints: {
     md: number;
