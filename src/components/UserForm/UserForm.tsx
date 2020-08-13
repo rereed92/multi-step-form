@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from 'components';
+import { Input, Row, Column } from 'components';
 
 interface IUserInputOptions {
   value: string;
@@ -18,35 +18,46 @@ const UserForm = ({ name, role, email, password }: IUserFormProps) => {
   return (
     <fieldset>
       <legend>User</legend>
-      <Input
-        label="name"
-        value={name.value}
-        onChange={name.onChange}
-        errorMessage={name.errorMessage}
-      />
+      <Row>
+        <Column width={6}>
+          <Input
+            label="name"
+            value={name.value}
+            onChange={name.onChange}
+            errorMessage={name.errorMessage}
+          />
+        </Column>
 
-      <Input
-        label="role"
-        value={role.value}
-        onChange={role.onChange}
-        errorMessage={role.errorMessage}
-      />
+        <Column width={6}>
+          <Input
+            label="role"
+            value={role.value}
+            onChange={role.onChange}
+            errorMessage={role.errorMessage}
+          />
+        </Column>
+      </Row>
+      <Row>
+        <Column width={6}>
+          <Input
+            label="email"
+            type="email"
+            value={email.value}
+            onChange={email.onChange}
+            errorMessage={email.errorMessage}
+          />
+        </Column>
 
-      <Input
-        label="email"
-        type="email"
-        value={email.value}
-        onChange={email.onChange}
-        errorMessage={email.errorMessage}
-      />
-
-      <Input
-        label="password"
-        type="password"
-        value={password.value}
-        onChange={password.onChange}
-        errorMessage={password.errorMessage}
-      />
+        <Column width={6}>
+          <Input
+            label="password"
+            type="password"
+            value={password.value}
+            onChange={password.onChange}
+            errorMessage={password.errorMessage}
+          />
+        </Column>
+      </Row>
     </fieldset>
   );
 };

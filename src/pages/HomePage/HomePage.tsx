@@ -23,7 +23,7 @@ import {
   setName,
 } from 'store/userDetails';
 import { findError, IValidation } from 'utilities/validations';
-import { UserDetailsValidation } from 'validations/userDetails';
+import UserDetailsValidation from 'validations/userDetails';
 import { ActionCreatorWithOptionalPayload } from '@reduxjs/toolkit';
 import { IInputPayload } from 'store/userDetails/types';
 
@@ -122,21 +122,19 @@ const HomePage = () => {
 
   return (
     <Container>
-      <>
-        <h1>Heading</h1>
-        {!showConfirmation ? (
-          <MultiStep
-            formSteps={formSteps}
-            onSubmit={(e: SyntheticEvent) => {
-              e.preventDefault();
-              setShowConfirmation(true);
-              dispatch(submitData(values));
-            }}
-          />
-        ) : (
-          <Confirmation />
-        )}
-      </>
+      <h1>Heading</h1>
+      {!showConfirmation ? (
+        <MultiStep
+          formSteps={formSteps}
+          onSubmit={(e: SyntheticEvent) => {
+            e.preventDefault();
+            setShowConfirmation(true);
+            dispatch(submitData(values));
+          }}
+        />
+      ) : (
+        <Confirmation />
+      )}
     </Container>
   );
 };

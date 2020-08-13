@@ -13,35 +13,32 @@ const MultiStep = ({ formSteps, onSubmit }: IMultiStepProps) => {
   return (
     <form onSubmit={onSubmit}>
       {steps[step].component}
-      <div>
-        {step !== 0 && (
-          <button
-            type="button"
-            onClick={(e: MouseEvent<HTMLButtonElement>) => {
-              e.preventDefault();
-              setStep(step - 1);
-            }}
-          >
-            Back
-          </button>
-        )}
-        {step === steps.length - 1 ? (
-          <button type="submit" disabled={!steps[step].isStepValid}>
-            Submit
-          </button>
-        ) : (
-          <button
-            type="button"
-            disabled={!steps[step].isStepValid}
-            onClick={(e: MouseEvent<HTMLButtonElement>) => {
-              e.preventDefault();
-              setStep(step + 1);
-            }}
-          >
-            Next
-          </button>
-        )}
-      </div>
+      <button
+        type="button"
+        disabled={step === 0}
+        onClick={(e: MouseEvent<HTMLButtonElement>) => {
+          e.preventDefault();
+          setStep(step - 1);
+        }}
+      >
+        Back
+      </button>
+      {step === steps.length - 1 ? (
+        <button type="submit" disabled={!steps[step].isStepValid}>
+          Submit
+        </button>
+      ) : (
+        <button
+          type="button"
+          disabled={!steps[step].isStepValid}
+          onClick={(e: MouseEvent<HTMLButtonElement>) => {
+            e.preventDefault();
+            setStep(step + 1);
+          }}
+        >
+          Next
+        </button>
+      )}
     </form>
   );
 };

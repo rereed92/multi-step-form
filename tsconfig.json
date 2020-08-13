@@ -11,16 +11,18 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "baseUrl": "./src",
     "paths": {
       "containers/*": ["containers/*"],
       "pages/*": ["pages/*"],
       "components/*": ["components/*"],
       "theme/*": ["assets/theme/*"],
+      "styles/*": ["assets/styles/*"],
       "utilities/*": ["utilities/*"],
       "routes/*": ["routes/*"],
       "store/*": ["store/*"],
-      "validations/*": ["validations/*"],
+      "validations/*": ["validations/*"]
     }
-  },
+  }
 }

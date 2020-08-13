@@ -1,7 +1,7 @@
 import React from 'react';
 import { RootState } from 'store';
 import { useSelector, useDispatch } from 'react-redux';
-import { Checkbox } from 'components';
+import { Checkbox, Row, Column } from 'components';
 import { setProductUpdates, setOtherProductUpdates } from 'store/userDetails';
 
 const PrivacyForm = () => {
@@ -12,21 +12,26 @@ const PrivacyForm = () => {
   return (
     <fieldset>
       <legend>Privacy</legend>
-      <Checkbox
-        label="product updates"
-        value={productUpdates}
-        onChange={(value: boolean) =>
-          dispatch(setProductUpdates({ checked: value }))
-        }
-      />
-
-      <Checkbox
-        label="other product updates"
-        value={otherProductUpdates}
-        onChange={(value: boolean) =>
-          dispatch(setOtherProductUpdates({ checked: value }))
-        }
-      />
+      <Row>
+        <Column width={12}>
+          <Checkbox
+            label="product updates"
+            value={productUpdates}
+            onChange={(value: boolean) =>
+              dispatch(setProductUpdates({ checked: value }))
+            }
+          />
+        </Column>
+        <Column width={12}>
+          <Checkbox
+            label="other product updates"
+            value={otherProductUpdates}
+            onChange={(value: boolean) =>
+              dispatch(setOtherProductUpdates({ checked: value }))
+            }
+          />
+        </Column>
+      </Row>
     </fieldset>
   );
 };

@@ -1,4 +1,4 @@
-import { ITheme } from '../types';
+import { ITheme } from 'theme/types';
 
 const primary: ITheme = {
   colors: {

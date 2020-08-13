@@ -1,7 +1,6 @@
-/* eslint-disable import/prefer-default-export */
 import { required, email, password } from 'utilities/validations';
 
-export const UserDetailsValidation = {
+const UserDetailsValidation = {
   name: [
     {
       rule: required,
@@ -29,3 +28,5 @@ export const UserDetailsValidation = {
     },
   ],
 };
+
+export default UserDetailsValidation;
