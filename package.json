@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
+    "@svgr/webpack": "^5.4.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.3",
     "history": "^4.10.0",
@@ -110,6 +111,7 @@
       "^components/(.*)": "<rootDir>/src/components/$1",
       "^theme/(.*)": "<rootDir>/src/assets/theme/$1",
       "^styles/(.*)": "<rootDir>/src/assets/styles/$1",
+      "^icons/(.*)": "<rootDir>/src/assets/icons/$1",
       "^utilities/(.*)": "<rootDir>/src/utilities/$1",
       "^routes/(.*)": "<rootDir>/src/routes/$1",
       "^store/(.*)": "<rootDir>/src/store/$1",

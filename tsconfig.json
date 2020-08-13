@@ -19,6 +19,7 @@
       "components/*": ["components/*"],
       "theme/*": ["assets/theme/*"],
       "styles/*": ["assets/styles/*"],
+      "icons/*": ["assets/icons/*"],
       "utilities/*": ["utilities/*"],
       "routes/*": ["routes/*"],
       "store/*": ["store/*"],

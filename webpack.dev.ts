@@ -18,6 +18,7 @@ const config: webpack.Configuration = {
       components: path.resolve(__dirname, './src/components/'),
       theme: path.resolve(__dirname, './src/assets/theme/'),
       styles: path.resolve(__dirname, './src/assets/styles/'),
+      icons: path.resolve(__dirname, './src/assets/icons/'),
       utilities: path.resolve(__dirname, './src/utilities/'),
       routes: path.resolve(__dirname, './src/routes/'),
       store: path.resolve(__dirname, './src/store/'),
@@ -27,8 +28,11 @@ const config: webpack.Configuration = {
 
   module: {
     rules: [
-      // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
       { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
     ],
   },
   plugins: [htmlPlugin],
