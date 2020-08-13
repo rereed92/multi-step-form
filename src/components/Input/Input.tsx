@@ -1,4 +1,6 @@
 import React, { ChangeEvent } from 'react';
+import { useTheme } from 'react-jss';
+import useStyles from './Input.styles';
 
 interface IInputProps {
   label: string;
@@ -19,11 +21,15 @@ const Input = ({
   onBlur = () => {},
   errorMessage = '',
 }: IInputProps) => {
+  const theme = useTheme();
+  const classes = useStyles({ theme });
+
   return (
-    <div>
-      <label>
-        {label}
+    <div className={classes.inputWrapper}>
+      <label className={classes.wrapper}>
+        <span className={classes.label}>{label}</span>
         <input
+          className={classes.input}
           type={type}
           placeholder={placeholder}
           value={value}
@@ -33,7 +39,7 @@ const Input = ({
           onBlur={onBlur}
         />
       </label>
-      {errorMessage && <p>{errorMessage}</p>}
+      {errorMessage && <p className={classes.error}>{errorMessage}</p>}
     </div>
   );
 };
