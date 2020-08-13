@@ -2,9 +2,9 @@ import { createUseStyles } from 'react-jss';
 import { ITheme } from 'theme/types';
 
 const useStyles = createUseStyles((theme: ITheme) => ({
-  header: {
-    background: theme.colors.primary,
-    height: theme.settings.headerHeight,
+  footer: {
+    background: theme.colors.primaryDark,
+    height: theme.settings.footerHeight,
   },
 }));
 

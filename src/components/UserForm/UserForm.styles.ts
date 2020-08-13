@@ -2,11 +2,15 @@ import { createUseStyles } from 'react-jss';
 import { ITheme } from 'theme/types';
 
 const useStyles = createUseStyles((theme: ITheme) => ({
-  row: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    flexDirection: 'column',
-    margin: `0 -${theme.spacing.padding}px`,
+  fieldset: {
+    padding: 0,
+    margin: 0,
+    border: 'none',
+  },
+  legend: {
+    color: theme.colors.default,
+    fontSize: theme.fontSizes.subTitle,
+    marginBottom: theme.spacing.medium,
   },
 }));
 

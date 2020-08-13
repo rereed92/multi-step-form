@@ -1,5 +1,7 @@
 import React from 'react';
 import { Input, Row, Column } from 'components';
+import { useTheme } from 'react-jss';
+import useStyles from './UserForm.styles';
 
 interface IUserInputOptions {
   value: string;
@@ -15,9 +17,12 @@ interface IUserFormProps {
 }
 
 const UserForm = ({ name, role, email, password }: IUserFormProps) => {
+  const theme = useTheme();
+  const classes = useStyles({ theme });
+
   return (
-    <fieldset>
-      <legend>User</legend>
+    <fieldset className={classes.fieldset}>
+      <legend className={classes.legend}>User Details</legend>
       <Row>
         <Column xs={12} md={6}>
           <Input

@@ -4,6 +4,7 @@ import jssExtend from 'jss-plugin-extend';
 import jssGlobal from 'jss-plugin-global';
 import jssNested from 'jss-plugin-nested';
 import jssVendorPrefixer from 'jss-plugin-vendor-prefixer';
+import jssCompose from 'jss-plugin-compose';
 
 const plugins =
   (jssCamelCase(),
@@ -11,6 +12,7 @@ const plugins =
   jssExtend(),
   jssGlobal(),
   jssNested(),
-  jssVendorPrefixer());
+  jssVendorPrefixer(),
+  jssCompose());
 
 export default plugins;

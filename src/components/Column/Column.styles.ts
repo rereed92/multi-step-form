@@ -8,14 +8,14 @@ export const col = (width: number, padding: number) => ({
 });
 
 const useStyles = createUseStyles((theme: ITheme) => ({
-  column: (props) => col(props.xs, theme.spacing.padding),
+  column: (props) => col(props.xs, theme.spacing.large),
 
   [`@media (min-width: ${theme.breakpoints.md}px)`]: {
-    column: (props: IColumnProps) => col(props.md, theme.spacing.padding),
+    column: (props: IColumnProps) => col(props.md, theme.spacing.large),
   },
 
   [`@media (min-width: ${theme.breakpoints.lg}px)`]: {
-    column: (props: IColumnProps) => col(props.lg, theme.spacing.padding),
+    column: (props: IColumnProps) => col(props.lg, theme.spacing.large),
   },
 }));
 

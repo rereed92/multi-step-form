@@ -1,11 +1,12 @@
 import { createUseStyles } from 'react-jss';
 import { ITheme } from 'theme/types';
+import { IHeadingProps } from './Heading';
 
 const useStyles = createUseStyles((theme: ITheme) => ({
-  header: {
-    background: theme.colors.primary,
-    height: theme.settings.headerHeight,
-  },
+  heading: (props: IHeadingProps) => ({
+    marginTop: 0,
+    fontSize: theme.fontSizes[props.size],
+  }),
 }));
 
 export default useStyles;

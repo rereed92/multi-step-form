@@ -11,6 +11,7 @@ import {
   PrivacyForm,
   Confirmation,
   Container,
+  Heading,
 } from 'components';
 import { IMultiStep } from 'components/MultiStep/types';
 import { useSelector, useDispatch } from 'react-redux';
@@ -122,7 +123,7 @@ const HomePage = () => {
 
   return (
     <Container>
-      <h1>Heading</h1>
+      <Heading size="h1">Sign up for a service</Heading>
       {!showConfirmation ? (
         <MultiStep
           formSteps={formSteps}

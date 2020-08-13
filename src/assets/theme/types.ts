@@ -11,13 +11,14 @@ export interface ITheme {
     default: string;
     defaultLight: string;
     light1: string;
+    light2: string;
   };
   fontSizes: {
-    H1: number;
-    H2: number;
-    H3: number;
-    H4: number;
-    H5: number;
+    h1: number;
+    h2: number;
+    h3: number;
+    h4: number;
+    h5: number;
     title: number;
     subTitle: number;
     body: number;
@@ -25,16 +26,17 @@ export interface ITheme {
   };
   spacing: {
     container: number;
-    padding: number;
-    margin: {
-      xs: number;
-      small: number;
-      medium: number;
-      large: number;
-    };
+    xs: number;
+    small: number;
+    medium: number;
+    large: number;
   };
   breakpoints: {
     md: number;
     lg: number;
+  };
+  settings: {
+    headerHeight: number;
+    footerHeight: number;
   };
 }

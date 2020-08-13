@@ -6,7 +6,7 @@ const Header = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
-  return <header className={classes.header}>Header</header>;
+  return <header className={classes.header} />;
 };
 
 export default Header;

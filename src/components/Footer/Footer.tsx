@@ -1,7 +1,12 @@
 import React from 'react';
+import { useTheme } from 'react-jss';
+import useStyles from './Footer.styles';
 
 const Footer = () => {
-  return <footer>Footer</footer>;
+  const theme = useTheme();
+  const classes = useStyles({ theme });
+
+  return <footer className={classes.footer} />;
 };
 
 export default Footer;
