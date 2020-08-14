@@ -6,7 +6,8 @@ const primary: ITheme = {
     primaryDark: '#030027',
     secondary: '#8E5572',
     secondaryDark: '#443850',
-    default: '#333333',
+    error: '#DB3A34',
+    default: '#000000',
     defaultLight: '#FFFFFF',
     light1: '#EDEDED',
     light2: '#CCCCCC',
@@ -28,6 +29,8 @@ const primary: ITheme = {
     small: 10,
     medium: 15,
     large: 20,
+    xlarge: 30,
+    xxlarge: 35,
   },
   breakpoints: {
     md: 768,

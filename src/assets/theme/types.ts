@@ -8,6 +8,7 @@ export interface ITheme {
     primaryDark: string;
     secondary: string;
     secondaryDark: string;
+    error: string;
     default: string;
     defaultLight: string;
     light1: string;
@@ -30,6 +31,8 @@ export interface ITheme {
     small: number;
     medium: number;
     large: number;
+    xlarge: number;
+    xxlarge: number;
   };
   breakpoints: {
     md: number;
