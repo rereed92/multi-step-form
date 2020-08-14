@@ -30,6 +30,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   error: {
     fontSize: theme.fontSizes.small,
     margin: 0,
+    color: theme.colors.error,
   },
 }));
 

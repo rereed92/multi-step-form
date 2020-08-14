@@ -6,6 +6,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   heading: (props: IHeadingProps) => ({
     marginTop: 0,
     fontSize: theme.fontSizes[props.size],
+    marginBottom: theme.spacing.xxlarge,
   }),
 }));
 

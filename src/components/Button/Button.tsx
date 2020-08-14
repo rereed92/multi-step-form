@@ -30,9 +30,7 @@ const Button = ({
       className={classNames([
         {
           [classes.button]: !secondary,
-          [classes.buttonDisabled]: disabled,
           [classes.buttonSecondary]: secondary,
-          [classes.buttonSecondaryDisabled]: secondary && disabled,
         },
       ])}
     >

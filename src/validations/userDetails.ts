@@ -24,7 +24,8 @@ const UserDetailsValidation = {
     },
     {
       rule: password,
-      message: 'Password needs to match the criteria',
+      message:
+        'Password needs be at least 9 characters with one number, one uppercase and one lowercase character',
     },
   ],
 };

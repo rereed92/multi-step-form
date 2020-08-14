@@ -8,22 +8,21 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     border: `2px solid ${theme.colors.secondary}`,
     borderRadius: 5,
     padding: `${theme.spacing.xs}px ${theme.spacing.small}px`,
-  },
-  buttonDisabled: {
-    composes: '$button',
-    backgroundColor: theme.colors.light2,
-    borderColor: theme.colors.light2,
+    '&:disabled': {
+      backgroundColor: theme.colors.light2,
+      borderColor: theme.colors.light2,
+    },
   },
   buttonSecondary: {
     composes: '$button',
     color: theme.colors.secondary,
     backgroundColor: theme.colors.defaultLight,
     borderColor: theme.colors.secondary,
-  },
-  buttonSecondaryDisabled: {
-    composes: '$buttonSecondary',
-    borderColor: theme.colors.light2,
-    color: theme.colors.light2,
+    '&:disabled': {
+      borderColor: theme.colors.light2,
+      backgroundColor: theme.colors.defaultLight,
+      color: theme.colors.light2,
+    },
   },
 }));
 

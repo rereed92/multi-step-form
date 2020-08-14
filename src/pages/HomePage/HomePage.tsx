@@ -109,12 +109,14 @@ const HomePage = () => {
   const formSteps: IMultiStep = {
     steps: [
       {
+        title: 'User',
         component: <UserForm {...userProps} />,
         isStepValid: Object.values(userErrorMessages).every(
           (field: string) => field === ''
         ),
       },
       {
+        title: 'Privacy',
         component: <PrivacyForm />,
         isStepValid: true,
       },

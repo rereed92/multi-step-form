@@ -11,3 +11,4 @@ export { default as Row } from './Row/Row';
 export { default as Column } from './Column/Column';
 export { default as Heading } from './Heading/Heading';
 export { default as Button } from './Button/Button';
+export { default as Stepper } from './Stepper/Stepper';

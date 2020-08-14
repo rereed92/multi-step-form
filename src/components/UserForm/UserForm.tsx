@@ -26,7 +26,7 @@ const UserForm = ({ name, role, email, password }: IUserFormProps) => {
       <Row>
         <Column xs={12} md={6}>
           <Input
-            label="name"
+            label="Name *"
             value={name.value}
             onChange={name.onChange}
             errorMessage={name.errorMessage}
@@ -35,7 +35,7 @@ const UserForm = ({ name, role, email, password }: IUserFormProps) => {
 
         <Column xs={12} md={6}>
           <Input
-            label="role"
+            label="Role"
             value={role.value}
             onChange={role.onChange}
             errorMessage={role.errorMessage}
@@ -45,7 +45,7 @@ const UserForm = ({ name, role, email, password }: IUserFormProps) => {
       <Row>
         <Column xs={12} md={6}>
           <Input
-            label="email"
+            label="Email *"
             type="email"
             value={email.value}
             onChange={email.onChange}
@@ -55,7 +55,7 @@ const UserForm = ({ name, role, email, password }: IUserFormProps) => {
 
         <Column xs={12} md={6}>
           <Input
-            label="password"
+            label="Password *"
             type="password"
             value={password.value}
             onChange={password.onChange}
