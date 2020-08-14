@@ -1,8 +1,5 @@
-import { ReactElement } from 'react';
+import { IStep } from 'components/Stepper/types';
 
 export interface IMultiStep {
-  steps: {
-    component: ReactElement;
-    isStepValid: boolean;
-  }[];
+  steps: IStep[];
 }

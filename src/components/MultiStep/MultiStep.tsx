@@ -1,7 +1,6 @@
 import React, { useState, FormEvent, MouseEvent } from 'react';
-import { Button } from 'components';
+import { Button, Stepper } from 'components';
 import { useTheme } from 'react-jss';
-import classNames from 'classnames';
 import { IMultiStep } from './types';
 import useStyles from './MultiStep.styles';
 
@@ -19,22 +18,7 @@ const MultiStep = ({ formSteps, onSubmit }: IMultiStepProps) => {
 
   return (
     <>
-      <ul className={classes.steps}>
-        {steps.map((_, index) => (
-          <li
-            // eslint-disable-next-line react/no-array-index-key
-            key={index}
-            className={classNames([
-              {
-                [classes.step]: step < index,
-                [classes.stepActive]: step >= index,
-              },
-            ])}
-          >
-            {index + 1}
-          </li>
-        ))}
-      </ul>
+      <Stepper steps={steps} currentStep={step} />
       <form onSubmit={onSubmit}>
         {steps[step].component}
         <div className={classes.buttons}>
