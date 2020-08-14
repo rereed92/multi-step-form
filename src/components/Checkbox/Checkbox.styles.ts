@@ -26,6 +26,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
       display: 'inline-block',
       width: 20,
       height: 20,
+      flexShrink: 0,
       marginRight: theme.spacing.small,
       borderRadius: 5,
       border: `2px solid ${theme.colors.primaryDark}`,
@@ -37,8 +38,9 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   },
   icon: {
     position: 'absolute',
-    top: 0,
+    top: '50%',
     left: 0,
+    transform: 'translateY(-50%)',
     width: 24,
     height: 24,
     color: theme.colors.defaultLight,
