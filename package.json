@@ -8,7 +8,7 @@
     "lint": "eslint '*/**/*.{ts,tsx}' --fix",
     "tsc": "tsc",
     "test": "jest",
-    "test:coverage": "jest"
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
@@ -118,13 +118,20 @@
       "^utilities/(.*)": "<rootDir>/src/utilities/$1",
       "^routes/(.*)": "<rootDir>/src/routes/$1",
       "^store/(.*)": "<rootDir>/src/store/$1",
-      "^validations/(.*)": "<rootDir>/src/validations/$1"
+      "^validations/(.*)": "<rootDir>/src/validations/$1",
+      "\\.(svg)$": "<rootDir>/config/jest/fileMock.ts"
     },
     "testMatch": [
       "**/?(*.)+(test).ts?(x)"
     ],
     "collectCoverageFrom": [
-      "src/components/**/*.{tsx}"
+      "src/**/*.{tsx,ts}",
+      "!**/types.ts",
+      "!**/state.ts",
+      "!**/*.styles.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/assets/"
     ],
     "coverageDirectory": "coverage",
     "coverageThreshold": {
