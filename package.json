@@ -126,12 +126,14 @@
     ],
     "collectCoverageFrom": [
       "src/**/*.{tsx,ts}",
+      "!**/index.tsx",
       "!**/types.ts",
       "!**/state.ts",
       "!**/*.styles.ts"
     ],
     "coveragePathIgnorePatterns": [
-      "<rootDir>/src/assets/"
+      "<rootDir>/src/assets/",
+      "<rootDir>/src/validations/"
     ],
     "coverageDirectory": "coverage",
     "coverageThreshold": {
