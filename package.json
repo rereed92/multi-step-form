@@ -4,11 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "concurrently \"tsc -w\" \"webpack-dev-server --open --hot --config webpack.dev.ts\"",
+    "start": "concurrently \"tsc -w\" \"webpack-dev-server --open --hot --port 3000 --config webpack.dev.ts\"",
     "lint": "eslint '*/**/*.{ts,tsx}' --fix",
     "tsc": "tsc",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "test:e2e": "cypress open"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
@@ -62,6 +63,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-jest": "^26.2.2",
     "concurrently": "^5.2.0",
+    "cypress": "^4.12.1",
     "eslint": "7.2.0",
     "eslint-config-airbnb": "18.2.0",
     "eslint-config-airbnb-typescript": "^9.0.0",

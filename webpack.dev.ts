@@ -25,7 +25,6 @@ const config: webpack.Configuration = {
       validations: path.resolve(__dirname, './src/validations/'),
     },
   },
-
   module: {
     rules: [
       { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
