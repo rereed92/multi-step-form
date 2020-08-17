@@ -1,11 +1,11 @@
 import React from 'react';
 import { useTheme } from 'react-jss';
 import classNames from 'classnames';
-import { IStep } from './types';
+import { IMultiStep } from 'components/MultiStep/types';
 import useStyles from './Stepper.styles';
 
 export interface IStepperProps {
-  steps: IStep[];
+  steps: IMultiStep[];
   currentStep: number;
 }
 
@@ -15,10 +15,11 @@ const Stepper = ({ steps, currentStep }: IStepperProps) => {
 
   return (
     <ul className={classes.steps}>
-      {steps.map((step: IStep, index) => {
+      {steps.map((step: IMultiStep, index) => {
         const active = currentStep >= index;
         return (
           <li
+            data-testid="steps"
             // eslint-disable-next-line react/no-array-index-key
             key={index}
             className={classes.step}
@@ -42,7 +43,9 @@ const Stepper = ({ steps, currentStep }: IStepperProps) => {
               >
                 {index + 1}
               </span>
-              <span className={classes.title}>{step.title}</span>
+              <span className={classes.title} data-testid="title">
+                {step.title}
+              </span>
             </div>
           </li>
         );
