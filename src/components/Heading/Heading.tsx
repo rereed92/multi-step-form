@@ -13,7 +13,11 @@ const Heading = ({ children, size }: IHeadingProps) => {
 
   const Size = size;
 
-  return <Size className={classes.heading}>{children}</Size>;
+  return (
+    <Size className={classes.heading} data-testid={`heading-${size}`}>
+      {children}
+    </Size>
+  );
 };
 
 export default Heading;
