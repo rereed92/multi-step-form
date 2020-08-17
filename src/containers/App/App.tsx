@@ -11,7 +11,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <main className={classes.content}>
+      <main className={classes.content} data-testid="content">
         <Routes />
       </main>
       <Footer />
