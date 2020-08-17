@@ -14,3 +14,5 @@ export const mountComponent = (component: any) => {
     <ThemeProvider theme={themes.primary}>{component}</ThemeProvider>
   );
 };
+
+export const getTestId = (testId: string) => `[data-testid="${testId}"]`;

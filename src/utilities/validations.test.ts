@@ -107,24 +107,26 @@ describe('Validations', () => {
     it('should return the error message if there is an error', () => {
       const validations = [
         {
-          rule: required,
+          rule: jest.fn(() => false),
           message: 'This is a required field',
         },
       ];
       const value = '';
       const result = findError(validations, value);
+      expect(validations[0].rule).toHaveBeenCalledWith(value);
       expect(result).toEqual(validations[0].message);
     });
 
     it('should return an empty string if there is no error', () => {
       const validations = [
         {
-          rule: required,
+          rule: jest.fn(() => true),
           message: 'This is a required field',
         },
       ];
       const value = 'string';
       const result = findError(validations, value);
+      expect(validations[0].rule).toHaveBeenCalledWith(value);
       expect(result).toEqual('');
     });
   });
