@@ -10,7 +10,11 @@ const Row = ({ children }: IRowProps) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
-  return <div className={classes.row}>{children}</div>;
+  return (
+    <div className={classes.row} data-testid="row">
+      {children}
+    </div>
+  );
 };
 
 export default Row;
