@@ -3,7 +3,7 @@ import { useTheme } from 'react-jss';
 import useStyles from './Row.styles';
 
 interface IRowProps {
-  children: ReactElement[];
+  children: ReactElement | ReactElement[];
 }
 
 const Row = ({ children }: IRowProps) => {

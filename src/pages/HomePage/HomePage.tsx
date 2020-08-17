@@ -23,7 +23,7 @@ import UserDetailsValidation from 'validations/userDetails';
 import { ActionCreatorWithOptionalPayload } from '@reduxjs/toolkit';
 import { IInputPayload } from 'store/userDetails/types';
 
-interface IUserErrorMessages {
+export interface IUserErrorMessages {
   name: string | undefined;
   email: string | undefined;
   password: string | undefined;

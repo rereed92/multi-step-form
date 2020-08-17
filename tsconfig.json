@@ -12,6 +12,8 @@
     "noUnusedParameters": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "types": ["jest", "cypress"],
     "baseUrl": "./src",
     "paths": {
       "containers/*": ["containers/*"],
@@ -24,6 +26,6 @@
       "routes/*": ["routes/*"],
       "store/*": ["store/*"],
       "validations/*": ["validations/*"]
-    }
-  }
+    },
+  },
 }

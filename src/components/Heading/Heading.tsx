@@ -2,9 +2,10 @@ import React from 'react';
 import { useTheme } from 'react-jss';
 import useStyles from './Heading.styles';
 
+export type HeadingSize = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
 export interface IHeadingProps {
   children: string;
-  size: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+  size: HeadingSize;
 }
 
 const Heading = ({ children, size }: IHeadingProps) => {

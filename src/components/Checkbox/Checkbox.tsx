@@ -30,13 +30,13 @@ const Checkbox = ({
           onChange(e.target.checked)
         }
       />
-      <div className={classes.label}>
+      <div className={classes.label} data-testid="label">
         {value && (
           <span className={classes.icon} data-testid="icon">
             <CheckIcon />
           </span>
         )}
-        <span data-testid="label">{label}</span>
+        <span>{label}</span>
       </div>
     </label>
   );

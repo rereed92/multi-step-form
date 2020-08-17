@@ -3,7 +3,7 @@ import { useTheme } from 'react-jss';
 import useStyles from './Container.styles';
 
 interface IContainerProps {
-  children: ReactElement[];
+  children: ReactElement | ReactElement[];
 }
 
 const Container = ({ children }: IContainerProps) => {

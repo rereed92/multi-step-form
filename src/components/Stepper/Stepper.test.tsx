@@ -1,5 +1,6 @@
 import React from 'react';
 import { mountComponent, getTestId } from 'utilities/testing';
+import { ReactWrapper } from 'enzyme';
 import Stepper from './Stepper';
 
 describe('Stepper', () => {
@@ -18,6 +19,7 @@ describe('Stepper', () => {
         isStepValid: true,
       },
     ],
+    currentStep: 0,
   };
 
   beforeEach(() => {

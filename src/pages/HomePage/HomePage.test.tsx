@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import * as userDetailsStore from 'store/userDetails';
 import * as validationTests from 'utilities/validations';
-import HomePage, { onInputChange } from './HomePage';
+import HomePage, { onInputChange, IUserErrorMessages } from './HomePage';
 
 describe('HomePage', () => {
   let wrapper: ReactWrapper;
@@ -48,7 +48,7 @@ describe('HomePage', () => {
 
   it('should handle onInputChange correctly when there are no error messages', () => {
     const dispatch = jest.fn();
-    const dispatchSetFunction = jest.fn();
+    const dispatchSetFunction = jest.fn() as any;
     const value = 'Value';
 
     onInputChange(dispatch, dispatchSetFunction)(value);
@@ -60,11 +60,11 @@ describe('HomePage', () => {
     const findErrorSpy = jest.spyOn(validationTests, 'findError');
 
     const dispatch = jest.fn();
-    const dispatchSetFunction = jest.fn();
+    const dispatchSetFunction = jest.fn() as any;
     const setUserErrorMessages = jest.fn();
     const userErrorMessages = {
       name: 'Name Error',
-    };
+    } as IUserErrorMessages;
     const field = 'name';
     const validations = [
       {

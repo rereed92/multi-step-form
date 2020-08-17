@@ -8,7 +8,7 @@ const Confirmation = () => {
   const classes = useStyles({ theme });
 
   return (
-    <div className={classes.confirmation}>
+    <div className={classes.confirmation} data-testid="confirmation">
       <span className={classes.icon} data-testid="icon">
         <CheckIcon />
       </span>

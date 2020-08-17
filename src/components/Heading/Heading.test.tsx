@@ -1,7 +1,7 @@
 import React from 'react';
 import { mountComponent, getTestId } from 'utilities/testing';
 import { ReactWrapper } from 'enzyme';
-import Heading from './Heading';
+import Heading, { HeadingSize } from './Heading';
 
 describe('Heading', () => {
   let wrapper: ReactWrapper;
@@ -10,7 +10,9 @@ describe('Heading', () => {
     children: 'Title',
   };
 
-  ['h1', 'h2', 'h3', 'h4', 'h5'].forEach((test) => {
+  const sizes: HeadingSize[] = ['h1', 'h2', 'h3', 'h4', 'h5'];
+
+  sizes.forEach((test) => {
     it(`should render the correct heading for ${test}`, () => {
       wrapper = mountComponent(<Heading {...props} size={test} />);
       expect(wrapper.find(getTestId(`heading-${test}`))).toHaveLength(1);

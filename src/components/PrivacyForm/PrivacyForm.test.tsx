@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { mountComponent, getTestId } from 'utilities/testing';
 import { ReactWrapper } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
@@ -39,7 +39,7 @@ describe('PrivacyForm', () => {
     wrapper
       .find(getTestId('productUpdatesCheckbox'))
       .props()
-      .onChange({ target: { checked: true } });
+      .onChange({ target: { checked: true } } as ChangeEvent<HTMLInputElement>);
 
     expect(store.getActions()).toEqual([setProductUpdates({ checked: true })]);
   });
@@ -50,7 +50,7 @@ describe('PrivacyForm', () => {
     wrapper
       .find(getTestId('otherProductUpdatesCheckbox'))
       .props()
-      .onChange({ target: { checked: true } });
+      .onChange({ target: { checked: true } } as ChangeEvent<HTMLInputElement>);
 
     expect(store.getActions()).toEqual([
       setOtherProductUpdates({ checked: true }),
