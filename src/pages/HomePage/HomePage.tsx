@@ -1,10 +1,5 @@
 /* eslint-disable no-console */
-import React, {
-  useState,
-  SyntheticEvent,
-  Dispatch,
-  SetStateAction,
-} from 'react';
+import React, { useState, Dispatch, SetStateAction, FormEvent } from 'react';
 import {
   MultiStep,
   UserForm,
@@ -106,22 +101,20 @@ const HomePage = () => {
     },
   };
 
-  const formSteps: IMultiStep = {
-    steps: [
-      {
-        title: 'User',
-        component: <UserForm {...userProps} />,
-        isStepValid: Object.values(userErrorMessages).every(
-          (field: string) => field === ''
-        ),
-      },
-      {
-        title: 'Privacy',
-        component: <PrivacyForm />,
-        isStepValid: true,
-      },
-    ],
-  };
+  const formSteps: IMultiStep[] = [
+    {
+      title: 'User',
+      component: <UserForm {...userProps} />,
+      isStepValid: Object.values(userErrorMessages).every(
+        (field: string) => field === ''
+      ),
+    },
+    {
+      title: 'Privacy',
+      component: <PrivacyForm />,
+      isStepValid: true,
+    },
+  ];
 
   return (
     <Container>
@@ -129,7 +122,7 @@ const HomePage = () => {
       {!showConfirmation ? (
         <MultiStep
           formSteps={formSteps}
-          onSubmit={(e: SyntheticEvent) => {
+          onSubmit={(e: FormEvent) => {
             e.preventDefault();
             setShowConfirmation(true);
             dispatch(submitData(values));
