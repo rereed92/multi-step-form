@@ -6,7 +6,7 @@ const Footer = () => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
-  return <footer className={classes.footer} />;
+  return <footer className={classes.footer} data-testid="footer" />;
 };
 
 export default Footer;
