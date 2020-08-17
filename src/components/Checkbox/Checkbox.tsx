@@ -7,15 +7,22 @@ interface ICheckboxProps {
   label: string;
   value: boolean;
   onChange: (value: boolean) => void;
+  testId?: string;
 }
 
-const Checkbox = ({ label, value, onChange }: ICheckboxProps) => {
+const Checkbox = ({
+  label,
+  value,
+  onChange,
+  testId = 'checkbox',
+}: ICheckboxProps) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
   return (
     <label className={classes.checkbox}>
       <input
+        data-testid={testId}
         className={classes.input}
         type="checkbox"
         checked={value}
@@ -25,11 +32,11 @@ const Checkbox = ({ label, value, onChange }: ICheckboxProps) => {
       />
       <div className={classes.label}>
         {value && (
-          <span className={classes.icon}>
+          <span className={classes.icon} data-testid="icon">
             <CheckIcon />
           </span>
         )}
-        <span>{label}</span>
+        <span data-testid="label">{label}</span>
       </div>
     </label>
   );
