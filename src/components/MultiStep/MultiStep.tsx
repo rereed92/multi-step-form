@@ -5,7 +5,7 @@ import { IMultiStep } from './types';
 import useStyles from './MultiStep.styles';
 
 export interface IMultiStepProps {
-  formSteps: IMultiStep;
+  formSteps: IMultiStep[];
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }
 
@@ -13,16 +13,16 @@ const MultiStep = ({ formSteps, onSubmit }: IMultiStepProps) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
-  const { steps } = formSteps;
   const [step, setStep] = useState<number>(0);
 
   return (
     <>
-      <Stepper steps={steps} currentStep={step} />
-      <form onSubmit={onSubmit}>
-        {steps[step].component}
+      <Stepper steps={formSteps} currentStep={step} />
+      <form onSubmit={onSubmit} data-testid="form">
+        {formSteps[step].component}
         <div className={classes.buttons}>
           <Button
+            testId="backButton"
             secondary
             disabled={step === 0}
             onClick={(e: MouseEvent<HTMLButtonElement>) => {
@@ -31,16 +31,18 @@ const MultiStep = ({ formSteps, onSubmit }: IMultiStepProps) => {
             }}
             text="Back"
           />
-          {step === steps.length - 1 ? (
+          {step === formSteps.length - 1 ? (
             <Button
+              testId="submitButton"
               type="submit"
-              disabled={!steps[step].isStepValid}
+              disabled={!formSteps[step].isStepValid}
               onClick={() => {}}
               text="Submit"
             />
           ) : (
             <Button
-              disabled={!steps[step].isStepValid}
+              testId="nextButton"
+              disabled={!formSteps[step].isStepValid}
               onClick={(e: MouseEvent<HTMLButtonElement>) => {
                 e.preventDefault();
                 setStep(step + 1);
