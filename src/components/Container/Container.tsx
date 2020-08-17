@@ -10,7 +10,11 @@ const Container = ({ children }: IContainerProps) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
-  return <div className={classes.container}>{children}</div>;
+  return (
+    <div className={classes.container} data-testid="container">
+      {children}
+    </div>
+  );
 };
 
 export default Container;
