@@ -9,10 +9,10 @@ const Confirmation = () => {
 
   return (
     <div className={classes.confirmation}>
-      <span className={classes.icon}>
+      <span className={classes.icon} data-testid="icon">
         <CheckIcon />
       </span>
-      <p>
+      <p data-testid="text">
         Please verify your email address, you should have received an email from
         us already
       </p>
