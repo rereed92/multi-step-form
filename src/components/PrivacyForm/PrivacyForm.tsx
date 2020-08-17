@@ -20,6 +20,7 @@ const PrivacyForm = () => {
       <Row>
         <Column xs={12}>
           <Checkbox
+            testId="productUpdatesCheckbox"
             label="Receive updates about Tray.io product by email"
             value={productUpdates}
             onChange={(value: boolean) =>
@@ -29,6 +30,7 @@ const PrivacyForm = () => {
         </Column>
         <Column xs={12}>
           <Checkbox
+            testId="otherProductUpdatesCheckbox"
             label="Receive communication by email for other products created by the Tray.io team"
             value={otherProductUpdates}
             onChange={(value: boolean) =>
