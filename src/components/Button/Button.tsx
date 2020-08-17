@@ -10,6 +10,7 @@ interface IButtonProps {
   onClick: (e: MouseEvent<HTMLButtonElement>) => void;
   text: string;
   secondary?: boolean;
+  testId?: string;
 }
 
 const Button = ({
@@ -18,12 +19,14 @@ const Button = ({
   onClick,
   text,
   secondary = false,
+  testId = 'button',
 }: IButtonProps) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
   return (
     <button
+      data-testid={testId}
       type={type}
       disabled={disabled}
       onClick={onClick}
