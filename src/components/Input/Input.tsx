@@ -10,6 +10,7 @@ interface IInputProps {
   onChange: (value: string) => void;
   onBlur?: () => void;
   errorMessage?: string;
+  testId?: string;
 }
 
 const Input = ({
@@ -20,6 +21,7 @@ const Input = ({
   onChange,
   onBlur = () => {},
   errorMessage = '',
+  testId = 'input',
 }: IInputProps) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
@@ -27,8 +29,11 @@ const Input = ({
   return (
     <div className={classes.inputWrapper}>
       <label className={classes.wrapper}>
-        <span className={classes.label}>{label}</span>
+        <span className={classes.label} data-testid="label">
+          {label}
+        </span>
         <input
+          data-testid={testId}
           className={classes.input}
           type={type}
           placeholder={placeholder}
@@ -39,7 +44,11 @@ const Input = ({
           onBlur={onBlur}
         />
       </label>
-      {errorMessage && <p className={classes.error}>{errorMessage}</p>}
+      {errorMessage && (
+        <p className={classes.error} data-testid="error">
+          {errorMessage}
+        </p>
+      )}
     </div>
   );
 };
